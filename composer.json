@@ -1,0 +1,11 @@
+{
+    "name": "nazarioa/hestia-child-eluminate",
+    "type": "wordpress-theme",
+    "authors": [
+        {
+            "name": "Nazario A. Ayala",
+            "email": "nazario@niztech.com"
+        }
+    ],
+    "require": {}
+}
