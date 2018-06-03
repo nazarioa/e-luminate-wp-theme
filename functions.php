@@ -6,6 +6,10 @@
  * Time: 4:00 PM
  */
 
+if ( !defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 if ( ! isset( $content_width ) ) {
 	$content_width = 1024;
 }
