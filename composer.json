@@ -1,27 +1,27 @@
 {
-    "name": "nazarioa/hestia-child-eluminate",
-    "type": "wordpress-theme",
-    "authors": [
-        {
-            "name": "Nazario A. Ayala",
-            "email": "nazario@niztech.com"
-        }
-    ],
-    "require": {
-        "themeisle/hestia": "^1.1.77"
-    },
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "themeisle/hestia",
-                "version": "1.1.77",
-                "dist": {
-                    "url": "zips/hestia-1.1.77.zip",
-                    "type": "zip"
-                },
-                "type": "wordpress-theme"
-            }
-        }
-    ]
+  "name": "nazarioa/hestia-child-eluminate",
+  "type": "wordpress-theme",
+  "authors": [
+    {
+      "name": "Nazario A. Ayala",
+      "email": "nazario@niztech.com"
+    }
+  ],
+  "require": {
+    "themeisle/hestia": "^1.1.77"
+  },
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "themeisle/hestia",
+        "version": "1.1.77",
+        "dist": {
+          "url": "zips/hestia-1.1.77.zip",
+          "type": "zip"
+        },
+        "type": "wordpress-theme"
+      }
+    }
+  ]
 }
