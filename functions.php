@@ -14,7 +14,7 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 1024;
 }
 
-if ( ! function_exists( 'hestia_child_eluminate_setup' ) ) :
+if ( ! function_exists( 'hestia_child_eluminate_setup' ) ) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -42,4 +42,3 @@ if ( ! function_exists( 'hestia_child_eluminate_setup' ) ) :
 		 */
 		add_theme_support( 'title-tag' );
 	}
-endif;
