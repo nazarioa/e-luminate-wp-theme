@@ -1,6 +1,7 @@
 {
   "name": "nazarioa/hestia-child-eluminate",
   "type": "wordpress-theme",
+  "minimum-stability": "dev",
   "authors": [
     {
       "name": "Nazario A. Ayala",
