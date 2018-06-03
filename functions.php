@@ -42,3 +42,29 @@ if ( ! function_exists( 'hestia_child_eluminate_setup' ) ) {
 		 */
 		add_theme_support( 'title-tag' );
 	}
+}
+
+if ( !function_exists( 'hestia_child_eluminate_parent_css' ) ){
+	function hestia_child_eluminate_parent_css() {
+		wp_enqueue_style( 'hestia_child_parent', trailingslashit( get_template_directory_uri() ) . 'style.css', array( 'bootstrap' ) );
+		if( is_rtl() ) {
+			wp_enqueue_style( 'hestia_child_parent_rtl', trailingslashit( get_template_directory_uri() ) . 'style-rtl.css', array( 'bootstrap' ) );
+		}
+	}
+}
+add_action( 'wp_enqueue_scripts', 'hestia_child_eluminate_parent_css', 10 );
+
+/**
+ * Import options from the parent theme
+ *
+ * @since 1.0.0
+ */
+function hestia_child_get_parent_options() {
+	$hestia_mods = get_option( 'theme_mods_hestia-pro' );
+	if ( ! empty( $hestia_mods ) ) {
+		foreach ( $hestia_mods as $hestia_mod_k => $hestia_mod_v ) {
+			set_theme_mod( $hestia_mod_k, $hestia_mod_v );
+		}
+	}
+}
+add_action( 'after_switch_theme', 'hestia_child_get_parent_options' );
