@@ -7,5 +7,21 @@
             "email": "nazario@niztech.com"
         }
     ],
-    "require": {}
+    "require": {
+        "themeisle/hestia": "^1.1.77"
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "themeisle/hestia",
+                "version": "1.1.77",
+                "dist": {
+                    "url": "zips/hestia-1.1.77.zip",
+                    "type": "zip"
+                },
+                "type": "wordpress-theme"
+            }
+        }
+    ]
 }
