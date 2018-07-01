@@ -8,6 +8,10 @@
  * @since Hestia 1.0
  */
 
+if ( class_exists( 'Niztech_Youtube' ) ) {
+	require_once( WP_PLUGIN_DIR . '/niztech-youtube/Niztech_Youtube_Client.class.php' );
+}
+
 get_header();
 
 /**
@@ -20,15 +24,18 @@ do_action( 'hestia_before_single_page_wrapper' ); ?>
         <div class="container">
 
 			<?php
-			if ( class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() ) ) {
-				?>
-				<div class="row">
-					<div class="col-sm-12">
-						<h1 class="hestia-title"><?php single_post_title(); ?></h1>
-					</div>
-				</div>
-				<?php
+			if ( class_exists( 'Niztech_Youtube_Client' ) ) {
+				$video_data = Niztech_Youtube_Client::video_content($post->ID);
+				if ( ! empty( $video_data ) ) {
+					foreach ( $video_data as $video ) {
+						printf('<img src="%s" alt="%s">', $video->thumbnail_default_url, $video->title);
+						printf('<a href="http://www.youtube.com/watch?v=%s">%s</a>', $video->youtube_video_code, $video->title);
+					}
+				}
 			}
+			?>
+
+            <?php
 			if ( have_posts() ) :
 				while ( have_posts() ) :
 					the_post();
