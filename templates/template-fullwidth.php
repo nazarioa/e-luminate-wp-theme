@@ -16,14 +16,8 @@ get_header();
 do_action( 'hestia_before_single_page_wrapper' ); ?>
 
 <div class="<?php echo hestia_layout(); ?>">
-	<?php
-	$class_to_add = '';
-	if ( class_exists( 'WooCommerce' ) && ! is_cart() ) {
-		$class_to_add = 'blog-post-wrapper';
-	}
-	?>
-	<div class="blog-post <?php echo esc_attr( $class_to_add ); ?>">
-		<div class="container">
+    <div class="blog-post <?php echo esc_attr( $class_to_add ); ?>">
+        <div class="container">
 
 			<?php
 			if ( class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() ) ) {
@@ -47,7 +41,7 @@ do_action( 'hestia_before_single_page_wrapper' ); ?>
 				get_template_part( 'template-parts/content', 'none' );
 			endif;
 			?>
-		</div>
-	</div>
+        </div>
+    </div>
 
 	<?php get_footer(); ?>
