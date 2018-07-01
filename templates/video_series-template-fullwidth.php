@@ -1,6 +1,7 @@
 <?php
 /**
- * Template Name: Fullwidth Template
+ * Template Name: Video Series Template Full Width
+ * Template Post Type: video_series
  *
  * The template for the full-width page.
  *
