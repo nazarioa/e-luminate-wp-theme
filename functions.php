@@ -54,7 +54,7 @@ if ( ! function_exists( 'hestia_child_eluminate_parent_css' ) ) {
 		}
 	}
 }
-add_action( 'wp_enqueue_scripts', 'hestia_child_eluminate_parent_css', 10 );
+add_action( 'wp_enqueue_scripts', 'hestia_child_eluminate_parent_css', 2 );
 
 /**
  * Import options from the parent theme
