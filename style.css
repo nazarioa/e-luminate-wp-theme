@@ -8,4 +8,567 @@
  Version:        1.0.0
  Template: hestia
  Text Domain:    eluminate-child
+
+ /**
+Read Me:
+This theme sucks and has some global options set in the appearance panel;
+button backgroun primary color: #11234;
+
 */
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# General
+    ## Generic styles
+    ## Buttons and links
+# Navigation
+# Forms
+# Pagination and navbar
+# Typography
+# Cards styling
+# Tables
+# Sections Styling
+    ## About Section
+    ## Portfolio Section
+    ## Contact Section
+    ## Team Section
+    ## Subscribe Section
+# Footer
+# Blog
+    ## Content
+    ## Sidebar
+    ## Attachment Page
+# Woocommerce Integration
+    ## My Account Page
+    ## Generic
+# Responsive
+--------------------------------------------------------------*/
+
+/* e-luminate custom styles */
+
+.video-entry {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 2em;
+}
+
+.video-entry:before,
+.video-entry:after {
+    content: " ";
+    display: table;
+}
+
+.video-entry:after {
+    clear: both;
+}
+
+
+img.video-thumbnail {
+  max-width: 24em;
+  width: 100%;
+  height: 100%;
+  float: left;
+  padding-right: 1em;
+}
+
+h4.video-title {
+  display: block;
+  vertical-align: top;
+}
+
+p.video-description {
+  display: block;
+}
+
+
+/* media queries */
+
+@media screen and (max-width: 48em) {
+  .video-entry {
+    text-align: center;
+  }
+
+  img.video-thumbnail {
+    float: none;
+    display: block;
+    margin: auto;
+  }
+
+  h4.video-title {
+    display: block;
+    vertical-align: initial;
+  }
+
+  p.video-description {
+    display: block;
+  }
+
+}
+
+
+/* Forms */
+
+/** {
+    background-color: red;
+}*/
+
+button,
+input[type="submit"],
+input[type="button"],
+.btn {
+  -webkit-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1);
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1);
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.form-control,
+.form-group .form-control,
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea, div.wpforms-container .wpforms-form input[type=date],
+div.wpforms-container .wpforms-form input[type=datetime],
+div.wpforms-container .wpforms-form input[type=datetime-local],
+div.wpforms-container .wpforms-form input[type=email],
+div.wpforms-container .wpforms-form input[type=month],
+div.wpforms-container .wpforms-form input[type=number],
+div.wpforms-container .wpforms-form input[type=password],
+div.wpforms-container .wpforms-form input[type=range],
+div.wpforms-container .wpforms-form input[type=search],
+div.wpforms-container .wpforms-form input[type=tel],
+div.wpforms-container .wpforms-form input[type=text],
+div.wpforms-container .wpforms-form input[type=time],
+div.wpforms-container .wpforms-form input[type=url],
+div.wpforms-container .wpforms-form input[type=week],
+div.wpforms-container .wpforms-form select,
+div.wpforms-container .wpforms-form textarea {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#005baa), to(#005baa)), -webkit-gradient(linear, left top, left bottom, from(#d2d2d2), to(#d2d2d2));
+  background-image: -webkit-linear-gradient(#005baa, #005baa), -webkit-linear-gradient(#d2d2d2, #d2d2d2);
+  background-image: linear-gradient(#005baa, #005baa), linear-gradient(#d2d2d2, #d2d2d2);
+  float: none;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center bottom, center -webkit-calc(100% - 1px);
+  background-position: center bottom, center calc(100% - 1px);
+  background-size: 0 2px, 100% 1px;
+  font-weight: 400;
+  -webkit-transition: background 0s ease-out;
+  transition: background 0s ease-out;
+}
+
+.form-group.is-focused .form-control, div.wpforms-container .wpforms-form .form-group.is-focused .form-control {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#005baa), to(#005baa)), -webkit-gradient(linear, left top, left bottom, from(#d2d2d2), to(#d2d2d2));
+  background-image: -webkit-linear-gradient(#005baa, #005baa), -webkit-linear-gradient(#d2d2d2, #d2d2d2);
+  background-image: linear-gradient(#005baa, #005baa), linear-gradient(#d2d2d2, #d2d2d2);
+  outline: none;
+  background-size: 100% 2px,100% 1px;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+/* typography */
+
+.hestia-title, .hestia-title a, .hestia-title a:hover, .title, .title a, .title a:hover, .card-title, .card-title a, .card-title a:hover, .info-title, .info-title a, .info-title a:hover, .footer-brand, .footer-brand a, .footer-brand a:hover, .footer-big h4, .footer-big h4 a, .footer-big h4 a:hover, .footer-big h5, .footer-big h5 a, .footer-big h5 a:hover, .media .media-heading, .media .media-heading a, .media .media-heading a:hover, .woocommerce.archive .blog-post .products .product-category h2, .woocommerce.archive .blog-post .products .product-category h2 a, .woocommerce.archive .blog-post .products .product-category h2 a:hover {
+  color: #3C4858;
+  text-decoration: none;
+  word-wrap: break-word;
+}
+
+.description, .card-description, .footer-big {
+  color: #999999;
+}
+
+.subscribe-line-image .subscribe-description {
+  color: #efefef;
+}
+
+.text-warning {
+  color: #ff9800;
+}
+
+.text-primary {
+  color: #005baa;
+}
+
+.text-danger {
+  color: #f44336;
+}
+
+.text-success {
+  color: #4caf50;
+}
+
+.text-info {
+  color: #00bcd4;
+}
+
+.text-rose {
+  color: #005baa;
+}
+
+.text-gray {
+  color: #999999;
+}
+
+/* buttons */
+
+.btn.btn-primary.btn-simple, .btn.btn-primary.btn-simple:hover, .btn.btn-primary.btn-simple:focus, .btn.btn-primary.btn-simple:active {
+  color: #005baa;
+  background-color: transparent;
+}
+
+button,
+button:hover,
+input[type="submit"],
+input[type="submit"]:hover,
+input[type="button"],
+input[type="button"]:hover,
+input#searchsubmit,
+.btn.btn-primary,
+.btn.btn-primary:hover,
+.btn.btn-primary:focus,
+.btn.btn-primary:active,
+.btn.btn-primary.active,
+.btn.btn-primary:active:focus,
+.btn.btn-primary:active:hover,
+.btn.btn-primary.active:focus,
+.btn.btn-primary.active:hover,
+.open > .btn.btn-primary.dropdown-toggle,
+.open > .btn.btn-primary.dropdown-toggle:focus,
+.open > .btn.btn-primary.dropdown-toggle:hover {
+  color: #fff;
+  background-color: #005baa;
+}
+
+.btn.btn-danger {
+  -webkit-box-shadow: 0 2px 2px 0 rgba(244, 67, 54, 0.14), 0 3px 1px -2px rgba(244, 67, 54, 0.2), 0 1px 5px 0 rgba(244, 67, 54, 0.12);
+  -moz-box-shadow: 0 2px 2px 0 rgba(244, 67, 54, 0.14), 0 3px 1px -2px rgba(244, 67, 54, 0.2), 0 1px 5px 0 rgba(244, 67, 54, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(244, 67, 54, 0.14), 0 3px 1px -2px rgba(244, 67, 54, 0.2), 0 1px 5px 0 rgba(244, 67, 54, 0.12);
+}
+.btn.btn-danger:hover, .btn.btn-danger:focus, .btn.btn-danger:active {
+  -webkit-box-shadow: 0 14px 26px -12px rgba(244, 67, 54, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(244, 67, 54, 0.2);
+  -moz-box-shadow: 0 14px 26px -12px rgba(244, 67, 54, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(244, 67, 54, 0.2);
+  box-shadow: 0 14px 26px -12px rgba(244, 67, 54, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(244, 67, 54, 0.2);
+}
+
+.btn.btn-danger.btn-simple,
+.btn.btn-danger.btn-simple:hover,
+.btn.btn-danger.btn-simple:focus,
+.btn.btn-danger.btn-simple:active,
+.btn.btn-danger,
+.btn.btn-danger:hover,
+.btn.btn-danger:focus,
+.btn.btn-danger:active,
+.btn.btn-danger.active,
+.btn.btn-danger:active:focus,
+.btn.btn-danger:active:hover,
+.btn.btn-danger.active:focus,
+.btn.btn-danger.active:hover,
+.open > .btn.btn-danger.dropdown-toggle,
+.open > .btn.btn-danger.dropdown-toggle:focus,
+.open > .btn.btn-danger.dropdown-toggle:hover {
+  color: #fff;
+  background-color: #f44336;
+}
+
+.btn.btn-rose {
+  -webkit-box-shadow: 0 2px 2px 0 rgba(233, 30, 99, 0.14), 0 3px 1px -2px rgba(233, 30, 99, 0.2), 0 1px 5px 0 rgba(233, 30, 99, 0.12);
+  -moz-box-shadow: 0 2px 2px 0 rgba(233, 30, 99, 0.14), 0 3px 1px -2px rgba(233, 30, 99, 0.2), 0 1px 5px 0 rgba(233, 30, 99, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(233, 30, 99, 0.14), 0 3px 1px -2px rgba(233, 30, 99, 0.2), 0 1px 5px 0 rgba(233, 30, 99, 0.12);
+}
+.btn.btn-rose:hover, .btn.btn-rose:focus, .btn.btn-rose:active {
+  -webkit-box-shadow: 0 14px 26px -12px rgba(233, 30, 99, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(233, 30, 99, 0.2);
+  -moz-box-shadow: 0 14px 26px -12px rgba(233, 30, 99, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(233, 30, 99, 0.2);
+  box-shadow: 0 14px 26px -12px rgba(233, 30, 99, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(233, 30, 99, 0.2);
+}
+
+.btn.btn-rose.btn-simple, .btn.btn-rose.btn-simple:hover, .btn.btn-rose.btn-simple:focus, .btn.btn-rose.btn-simple:active {
+  color: #005baa;
+  background-color: transparent;
+}
+
+.btn.btn-rose,
+.btn.btn-rose:hover,
+.btn.btn-rose:focus,
+.btn.btn-rose:active,
+.btn.btn-rose.active,
+.btn.btn-rose:active:focus,
+.btn.btn-rose:active:hover,
+.btn.btn-rose.active:focus,
+.btn.btn-rose.active:hover,
+.open > .btn.btn-rose.dropdown-toggle,
+.open > .btn.btn-rose.dropdown-toggle:focus,
+.open > .btn.btn-rose.dropdown-toggle:hover {
+  color: #fff;
+  background-color: #005baa;
+}
+
+.btn.btn-border:hover, .btn.btn-border:focus {
+  background: transparent;
+  color: #3C4858;
+}
+
+.navbar .button:hover {
+  box-shadow: none !important;
+  color: #005baa;
+}
+
+/* forms */
+
+.label {
+  background-color: #fff;
+  border-radius: 2px;
+}
+.label.label-default {
+  background-color: #fff;
+}
+.label.label-primary {
+  background-color: #005baa;
+}
+.label.label-success {
+  background-color: #4caf50;
+}
+.label.label-danger {
+  background-color: #f44336;
+}
+.label.label-rose {
+  background-color: #005baa;
+}
+
+.form-group.is-focused .form-control .material-input:after {
+  background-color: #005baa;
+}
+
+/* navigation */
+
+.navbar .dropdown-menu li:hover > a {
+  color: #005baa;
+}
+
+/* pagination */
+
+.pagination span.current, .pagination span.current:focus, .pagination span.current:hover {
+  border-color: #005baa;
+  color: #fff;
+  background-color: #005baa;
+  -webkit-box-shadow: 0 4px 5px 0 rgba(156, 39, 176, 0.14), 0 1px 10px 0 rgba(156, 39, 176, 0.12), 0 2px 4px -1px rgba(156, 39, 176, 0.2);
+  box-shadow: 0 4px 5px 0 rgba(156, 39, 176, 0.14), 0 1px 10px 0 rgba(156, 39, 176, 0.12), 0 2px 4px -1px rgba(156, 39, 176, 0.2);
+}
+
+/* cards */
+
+.card .header-primary,
+.card .content-primary {
+  background: -webkit-linear-gradient(30deg, #005baa, #005baa);
+  background: linear-gradient(60deg, #005baa, #005baa);
+}
+
+.card .author a {
+  color: #3C4858;
+  text-decoration: none;
+}
+
+.card-blog .row .category a {
+  color: #00bcd4;
+}
+
+.card-blog a.moretag,
+.card-blog a.more-link {
+  display: inline-block;
+  margin-left: 5px;
+  color: #23527c;
+}
+.card-blog a.moretag:hover,
+.card-blog a.more-link:hover {
+  color: #89229b;
+}
+
+.card-pricing ul li b {
+  color: #3C4858;
+}
+
+.card-product .footer .price h4 {
+  color: #3C4858;
+  margin-bottom: 0;
+}
+
+/* abour section */
+
+.hestia-about h1, .hestia-about h2, .hestia-about h3, .hestia-about h4, .hestia-about h5 {
+  color: #3C4858;
+  text-decoration: none;
+  word-wrap: break-word;
+  font-family: "Roboto Slab", "Times New Roman", serif;
+}
+.hestia-about.section-image {
+  color: #fefefe;
+}
+
+/* portfolio sectiom */
+
+.hestia-work .portfolio-item:nth-child(6n) .label {
+  background-color: #4caf50;
+}
+.hestia-work .portfolio-item:nth-child(6n+1) .label {
+  background-color: #89229b;
+}
+.hestia-work .portfolio-item:nth-child(6n+2) .label {
+  background-color: #00bcd4;
+}
+.hestia-work .portfolio-item:nth-child(6n+3) .label {
+  background-color: #f44336;
+}
+.hestia-work .portfolio-item:nth-child(6n+4) .label {
+  background-color: #ff9800;
+}
+.hestia-work .portfolio-item:nth-child(6n+5) .label {
+  background-color: #005baa;
+}
+
+/* features section */
+
+.icon.icon-primary {
+  color: #005baa;
+}
+.icon.icon-success {
+  color: #4caf50;
+}
+.icon.icon-danger {
+  color: #f44336;
+}
+.icon.icon-rose {
+  color: #005baa;
+}
+
+/* blog section */
+
+.hestia-blogs article:nth-child(6n) .category a {
+  color: #4caf50;
+}
+.hestia-blogs article:nth-child(6n+1) .category a {
+  color: #89229b;
+}
+.hestia-blogs article:nth-child(6n+2) .category a {
+  color: #00bcd4;
+}
+.hestia-blogs article:nth-child(6n+3) .category a {
+  color: #f44336;
+}
+.hestia-blogs article:nth-child(6n+4) .category a {
+  color: #ff9800;
+}
+.hestia-blogs article:nth-child(6n+5) .category a {
+  color: #005baa;
+}
+.hestia-blogs article .card-image img {
+  transition: 1s ease-out;
+}
+.hestia-blogs article .card-image a:hover {
+  opacity: 1;
+}
+.hestia-blogs article .card-image a:hover img {
+  -webkit-transform: scale3d(1.1, 1.1, 1);
+  transform: scale3d(1.1, 1.1, 1);
+}
+
+/* sidebar */
+aside .widget a {
+  color: #23527c;
+}
+
+.widget a:hover {
+  color: #89229b;
+}
+
+/* features area */
+
+.hestia-blog-featured-posts article:nth-of-type(1) .card {
+  margin-top: 0;
+}
+.hestia-blog-featured-posts article:nth-child(6n) .btn {
+  background-color: #4caf50;
+}
+.hestia-blog-featured-posts article:nth-child(6n+1) .btn {
+  background-color: #89229b;
+}
+.hestia-blog-featured-posts article:nth-child(6n+2) .btn {
+  background-color: #00bcd4;
+}
+.hestia-blog-featured-posts article:nth-child(6n+3) .btn {
+  background-color: #f44336;
+}
+.hestia-blog-featured-posts article:nth-child(6n+4) .btn {
+  background-color: #ff9800;
+}
+.hestia-blog-featured-posts article:nth-child(6n+5) .btn {
+  background-color: #005baa;
+}
+
+/* page */
+
+.header-filter, .header-filter-gradient {
+  background: linear-gradient(45deg, #005baa 0%, #005baa 100%);
+}
+
+/* responsive */
+
+
+@media (max-width: 768px) {
+    .navbar .navbar-nav li:hover > a i {
+         color: #005baa;
+    }
+
+    .navbar .navbar-nav .dropdown .dropdown-menu li a:hover, .navbar .navbar-nav .dropdown .dropdown-menu li a:focus {
+        background-color: transparent;
+        color: #005baa;
+    }
+
+    .navbar .open .dropdown-menu > li > a:hover,
+    .navbar .open .dropdown-menu > li > a:focus,
+    .navbar .open .dropdown-menu > .active > a,
+    .navbar .open .dropdown-menu > .active > a:hover,
+    .navbar .open .dropdown-menu > .active > a:focus,
+    .navbar .open .dropdown-menu > .disabled > a,
+    .navbar .open .dropdown-menu > .disabled > a:hover,
+    .navbar .open .dropdown-menu > .disabled > a:focus {
+        color: #005baa;
+        background-color: transparent;
+    }
+}
+
+/* Elementor / Beaver Builder Section Editing */
+
+.elementor-editor-active .main > section .hestia-pagebuilder-frontpage-controls,
+.fl-builder-edit .main > section .hestia-pagebuilder-frontpage-controls {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  border: 2px solid #76cfe8;
+  text-align: center;
+  display: none;
+  z-index: 100;
+}
+.elementor-editor-active .main > section .hestia-pagebuilder-frontpage-controls > a,
+.fl-builder-edit .main > section .hestia-pagebuilder-frontpage-controls > a {
+  cursor: pointer;
+  position: relative;
+  background: #71d7f7;
+  border-radius: 3px 3px 0 0;
+  top: -30px;
+  line-height: 30px;
+  min-width: 30px;
+  text-align: center;
+  color: #fff;
+  font-weight: 800;
+  padding: 0 10px;
+  display: inline-block;
+}
+.elementor-editor-active .main > section .hestia-pagebuilder-frontpage-controls > a:hover,
+.fl-builder-edit .main > section .hestia-pagebuilder-frontpage-controls > a:hover {
+  color: #f00;
+}
