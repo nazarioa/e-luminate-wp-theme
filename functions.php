@@ -75,4 +75,3 @@ if ( ! function_exists( 'hestia_child_get_parent_options' ) ) {
 
 	add_action( 'after_switch_theme', 'hestia_child_get_parent_options' );
 }
-add_action( 'after_switch_theme', 'hestia_child_get_parent_options' );
