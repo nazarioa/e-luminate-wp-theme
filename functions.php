@@ -40,8 +40,9 @@ if ( ! function_exists( 'hestia_child_eluminate_setup' ) ) {
 		 * hard-coded <title> tag in the document head, and expect WordPress to
 		 * provide it for us.
 		 */
-		add_theme_support( 'title-tag' );
 	}
+
+	add_theme_support( 'title-tag' );
 }
 
 if ( ! function_exists( 'hestia_child_eluminate_parent_css' ) ) {
@@ -53,8 +54,9 @@ if ( ! function_exists( 'hestia_child_eluminate_parent_css' ) ) {
 				trailingslashit( get_template_directory_uri() ) . 'style-rtl.css', array( 'bootstrap' ) );
 		}
 	}
+
+	add_action( 'wp_enqueue_scripts', 'hestia_child_eluminate_parent_css', 2 );
 }
-add_action( 'wp_enqueue_scripts', 'hestia_child_eluminate_parent_css', 2 );
 
 /**
  * Import options from the parent theme
@@ -70,5 +72,7 @@ if ( ! function_exists( 'hestia_child_get_parent_options' ) ) {
 			}
 		}
 	}
+
+	add_action( 'after_switch_theme', 'hestia_child_get_parent_options' );
 }
 add_action( 'after_switch_theme', 'hestia_child_get_parent_options' );
