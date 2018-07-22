@@ -141,8 +141,8 @@ if ( ! function_exists( 'hestia_child_eluminate_video_series_index_html' ) ) {
 			if ( sizeof( $videos ) > 0 && isset( $videos[0]->thumbnail_default_url ) ) {
 			}
 
-			$img_url =  $videos[0]->thumbnail_maxres_url ??  $videos[0]->thumbnail_standard_url ??  $videos[0]->thumbnail_default_url ?? null;
-			if($img_url) {
+			$img_url = $videos[0]->thumbnail_maxres_url ?? $videos[0]->thumbnail_standard_url ?? $videos[0]->thumbnail_default_url ?? null;
+			if ( $img_url ) {
 				$html .= '<img ' . $img_attribute_html . ' src="' . $img_url . '"> ';
 			}
 			$html .= '<ul ' . $list_attribute_html . ' > ';
