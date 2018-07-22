@@ -47,64 +47,95 @@ button backgroun primary color: #11234;
 
 /* e-luminate custom styles */
 
-.video-entry {
+.video-entry, .recent-home-series {
   width: 100%;
   height: auto;
   display: block;
-  margin-bottom: 2em;
+  margin-bottom: 4em;
 }
 
 .video-entry:before,
-.video-entry:after {
+.video-entry:after,
+.recent-home-series:before,
+.recent-home-series:after {
     content: " ";
     display: table;
 }
 
-.video-entry:after {
+.video-entry:after,
+.recent-home-series:after {
     clear: both;
 }
 
-
-img.video-thumbnail {
-  max-width: 24em;
+img.video-thumbnail, img.recent-home-series-img {
+  max-width: 40em;
   width: 100%;
   height: 100%;
   float: left;
   padding-right: 1em;
 }
 
-h4.video-title {
+h4.video-title, .recent-home-series h1 {
   display: block;
   vertical-align: top;
 }
 
-p.video-description {
+p.video-description, .recent-home-series-list {
   display: block;
+}
+
+ul.recent-home-series-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+div.header-filter {
+  background-position: center;
+  background-size: cover;
+  /*background-color: #ffdd00;*/
+}
+
+.footer-black .copyright { /*disables Hestia theme information */
+  display: none;
+}
+
+.navbar .navbar-brand img { /*sizes up the homepage e-luminate */
+  max-height: 4em;
+  padding-bottom: .5em;
 }
 
 
 /* media queries */
 
+
 @media screen and (max-width: 48em) {
-  .video-entry {
+  .video-entry, .recent-home-series {
     text-align: center;
   }
 
-  img.video-thumbnail {
+  img.video-thumbnail, img.recent-home-series-img {
     float: none;
     display: block;
     margin: auto;
+    margin-bottom: 1em;
+    padding-right: 0;
   }
 
-  h4.video-title {
+  h4.video-title, .recent-home-series h1 {
     display: block;
     vertical-align: initial;
   }
 
-  p.video-description {
+  p.video-description, .recent-home-series-list {
     display: block;
   }
 
+}
+
+@media screen and (max-width: 64em) {
+  img.video-thumbnail, img.recent-home-series-img {
+    max-width: 32em;
+  }
 }
 
 
