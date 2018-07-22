@@ -47,6 +47,10 @@ button backgroun primary color: #11234;
 
 /* e-luminate custom styles */
 
+body, li {
+  font-size: 18px;
+}
+
 .video-entry, .recent-home-series {
   width: 100%;
   height: auto;
@@ -68,7 +72,7 @@ button backgroun primary color: #11234;
 }
 
 img.video-thumbnail, img.recent-home-series-img {
-  max-width: 40em;
+  max-width: 32em;
   width: 100%;
   height: 100%;
   float: left;
@@ -135,13 +139,6 @@ div.header-filter {
   }
 
 }
-
-@media screen and (max-width: 64em) {
-  img.video-thumbnail, img.recent-home-series-img {
-    max-width: 32em;
-  }
-}
-
 
 /* Forms */
 
