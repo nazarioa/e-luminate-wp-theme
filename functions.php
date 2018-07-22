@@ -125,35 +125,35 @@ if ( ! function_exists( 'hestia_child_eluminate_recent_video_series_data' ) ) {
 
 if ( ! function_exists( 'hestia_child_eluminate_video_series_index_html' ) ) {
 	function hestia_child_eluminate_video_series_index_html( $video_series_data, array $options = array() ) {
-		$section_attribute_html[] = isset( $options['id'] ) ? ' id="' . $options['id'] . '" ' : '';
-		$section_attribute_html[] = isset( $options['class'] ) ? ' class="' . $options['class'] . '" ' : '';
+		$section_attribute_html[] = isset( $options['id'] ) ? 'id="' . $options['id'] . '"' : '';
+		$section_attribute_html[] = isset( $options['class'] ) ? 'class="' . $options['class'] . '"' : '';
 		$html                     = '<section ' . join( ' ', $section_attribute_html ) . '>';
 		foreach ( $video_series_data as $series ) {
 			$videos                 = $series['video_data'] ?? array();
 			$class                  = $options['class'] ?? null;
 			$article_attribute_html = $class ? ' class="' . $class . '-series" ' : 'class="series"';
-			$img_attribute_html     = $class ? ' class="' . $class . '-series-img" ' : 'class="series-img"';
-			$list_attribute_html    = $class ? ' class="' . $class . '-series-list" ' : 'class="series-list"';
 			$html                   .= '<article ' . $article_attribute_html . '>';
 			if ( isset( $series['post_title'] ) ) {
 				$html .= '<h1>' . $series['post_title'] . '</h1 >';
 			}
-			if ( sizeof( $videos ) > 0 && isset( $videos[0]->thumbnail_default_url ) ) {
-			}
 
-			$img_url = $videos[0]->thumbnail_maxres_url ?? $videos[0]->thumbnail_standard_url ?? $videos[0]->thumbnail_default_url ?? null;
-			if ( $img_url ) {
-				$html .= '<img ' . $img_attribute_html . ' src="' . $img_url . '"> ';
-			}
-			$html .= '<ul ' . $list_attribute_html . ' > ';
-			foreach ( $videos as $video ) {
-				$html .= '<li> ';
-				if ( isset( $video->title ) ) {
-					$html .= '<a href="' . $series['guid'] . '">' . $video->title . '</a>';
+			if ( sizeof( $videos ) > 0 ) {
+				$img_url = $videos[0]->thumbnail_maxres_url ?? $videos[0]->thumbnail_standard_url ?? $videos[0]->thumbnail_default_url ?? null;
+				if ( $img_url ) {
+					$img_attribute_html = $class ? ' class="' . $class . '-series-img" ' : 'class="series-img"';
+					$html               .= '<img ' . $img_attribute_html . ' src="' . $img_url . '"> ';
 				}
-				$html .= '</li> ';
+				$list_attribute_html = $class ? ' class="' . $class . '-series-list" ' : 'class="series-list"';
+				$html                .= '<ul ' . $list_attribute_html . ' > ';
+				foreach ( $videos as $video ) {
+					$html .= '<li> ';
+					if ( isset( $video->title ) ) {
+						$html .= '<a href="' . $series['guid'] . '">' . $video->title . '</a>';
+					}
+					$html .= '</li> ';
+				}
+				$html .= '</ul >';
 			}
-			$html .= '</ul >';
 			$html .= '</article >';
 		}
 
@@ -167,8 +167,8 @@ if ( ! function_exists( 'hestia_child_eluminate_recent_video_series_shortcode' )
 	function hestia_child_eluminate_recent_video_series_shortcode( $attr ) {
 		$a = shortcode_atts( array(
 			'limit' => 20,
-			'id'    => '',
-			'class' => '',
+			'id'    => null,
+			'class' => null,
 		), $attr );
 
 		// Get the data.
