@@ -75,3 +75,24 @@ if ( ! function_exists( 'hestia_child_get_parent_options' ) ) {
 
 	add_action( 'after_switch_theme', 'hestia_child_get_parent_options' );
 }
+
+if ( ! function_exists( 'hestia_child_plugin_function_name' ) ) {
+
+	/**
+	 * This forces `video_series` pages to use the video_series-template-fullwidth 
+	 * @param $single_template
+	 *
+	 * @return string
+	 */
+	function hestia_child_plugin_function_name( $single_template ) {
+		global $post;
+		// use a custom template only when needed
+		if ( 'video_series' === $post->post_type ) {
+			$single_template = dirname( __FILE__ ) . '/templates/video_series-template-fullwidth.php';
+		}
+
+		return $single_template;
+	}
+
+	add_filter( 'single_template', 'hestia_child_plugin_function_name' );
+}
