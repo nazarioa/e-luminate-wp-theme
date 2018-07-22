@@ -79,7 +79,8 @@ if ( ! function_exists( 'hestia_child_get_parent_options' ) ) {
 if ( ! function_exists( 'hestia_child_plugin_function_name' ) ) {
 
 	/**
-	 * This forces `video_series` pages to use the video_series-template-fullwidth 
+	 * This forces `video_series` pages to use the video_series-template-fullwidth
+	 *
 	 * @param $single_template
 	 *
 	 * @return string
