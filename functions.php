@@ -167,12 +167,15 @@ if ( ! function_exists( 'hestia_child_eluminate_recent_video_series_shortcode' )
 	function hestia_child_eluminate_recent_video_series_shortcode( $attr ) {
 		$a = shortcode_atts( array(
 			'limit' => 20,
+			'id'    => null,
+			'class' => null,
 		), $attr );
 
 		// Get the data.
 		$data = hestia_child_eluminate_recent_video_series_data( $a['limit'] );
 		// Generate the html.
-		print_r( hestia_child_eluminate_video_series_index_html( $data ) );
+		print_r( hestia_child_eluminate_video_series_index_html( $data,
+			array( 'id' => $a['id'], 'class' => $a['class'] ) ) );
 	}
 
 	add_shortcode( 'eluminate-recent', 'hestia_child_eluminate_recent_video_series_shortcode' );
