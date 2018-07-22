@@ -6,6 +6,10 @@
  * Time: 4:00 PM
  */
 
+if ( class_exists( 'Niztech_Youtube' ) ) {
+	require_once( WP_PLUGIN_DIR . '/niztech-youtube/Niztech_Youtube_Client.class.php' );
+}
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -96,4 +100,80 @@ if ( ! function_exists( 'hestia_child_plugin_function_name' ) ) {
 	}
 
 	add_filter( 'single_template', 'hestia_child_plugin_function_name' );
+}
+
+if ( ! function_exists( 'hestia_child_eluminate_recent_video_series_data' ) ) {
+	function hestia_child_eluminate_recent_video_series_data( $postCount = 20 ) {
+		global $wpdb;
+		$video_series_data = wp_get_recent_posts( array(
+			'numberposts' => $postCount,
+			'orderby'     => 'post_date',
+			'order'       => 'DESC',
+			'post_type'   => 'video_series',
+			'post_status' => 'publish',
+		) );
+
+		if ( class_exists( 'Niztech_Youtube_Client' ) ) {
+			foreach ( $video_series_data as &$video ) {
+				$video['video_data'] = Niztech_Youtube_Client::video_content( $video['ID'] );
+			}
+		}
+
+		return $video_series_data;
+	}
+}
+
+if ( ! function_exists( 'hestia_child_eluminate_video_series_index_html' ) ) {
+	function hestia_child_eluminate_video_series_index_html( $video_series_data, array $options = array() ) {
+		$section_attribute_html[] = isset( $options['id'] ) ? 'id="' . $options['id'] . '"' : '';
+		$section_attribute_html[] = isset( $options['class'] ) ? 'class="' . $options['class'] . '"' : '';
+		$html                     = '<section ' . join( ' ', $section_attribute_html ) . '>';
+		foreach ( $video_series_data as $series ) {
+			$videos                 = $series['video_data'] ?? array();
+			$class                  = $options['class'] ?? null;
+			$article_attribute_html = $class ? ' class="' . $class . '-series" ' : 'class="series"';
+			$html                   .= '<article ' . $article_attribute_html . '>';
+			if ( isset( $series['post_title'] ) ) {
+				$html .= '<h1>' . $series['post_title'] . '</h1 >';
+			}
+
+			if ( sizeof( $videos ) > 0 ) {
+				$img_url = $videos[0]->thumbnail_maxres_url ?? $videos[0]->thumbnail_standard_url ?? $videos[0]->thumbnail_default_url ?? null;
+				if ( $img_url ) {
+					$img_attribute_html = $class ? ' class="' . $class . '-series-img" ' : 'class="series-img"';
+					$html               .= '<img ' . $img_attribute_html . ' src="' . $img_url . '"> ';
+				}
+				$list_attribute_html = $class ? ' class="' . $class . '-series-list" ' : 'class="series-list"';
+				$html                .= '<ul ' . $list_attribute_html . ' > ';
+				foreach ( $videos as $video ) {
+					$html .= '<li> ';
+					if ( isset( $video->title ) ) {
+						$html .= '<a href="' . $series['guid'] . '">' . $video->title . '</a>';
+					}
+					$html .= '</li> ';
+				}
+				$html .= '</ul >';
+			}
+			$html .= '</article >';
+		}
+
+		return $html;
+	}
+}
+
+
+if ( ! function_exists( 'hestia_child_eluminate_recent_video_series_shortcode' ) ) {
+
+	function hestia_child_eluminate_recent_video_series_shortcode( $attr ) {
+		$a = shortcode_atts( array(
+			'limit' => 20,
+		), $attr );
+
+		// Get the data.
+		$data = hestia_child_eluminate_recent_video_series_data( $a['limit'] );
+		// Generate the html.
+		print_r( hestia_child_eluminate_video_series_index_html( $data ) );
+	}
+
+	add_shortcode( 'eluminate-recent', 'hestia_child_eluminate_recent_video_series_shortcode' );
 }
