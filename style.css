@@ -92,15 +92,19 @@ ul.recent-home-series-list {
 div.header-filter {
   background-position: center;
   background-size: cover;
-  /*background-color: #ffdd00;*/
 }
 
 .footer-black .copyright { /*disables Hestia theme information */
   display: none;
 }
 
+.footer .content, .col-md-4 {
+  text-align: center;
+  width: 100%;
+}
+
 .navbar .navbar-brand img { /*sizes up the homepage e-luminate */
-  max-height: 4em;
+  max-height: 6em;
   padding-bottom: .5em;
 }
 
