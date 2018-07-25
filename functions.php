@@ -18,6 +18,90 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 1024;
 }
 
+/**
+ * Register Post types used by this theme.
+ */
+if ( ! function_exists( 'hestia_child_register_post_types' ) ) {
+
+// Register video_series Post Type
+	function hestia_child_register_post_types() {
+
+		$labels = array(
+			'name'                  => _x( 'Video Series', 'Post Type General Name', 'eluminate-child' ),
+			'singular_name'         => _x( 'Video Series', 'Post Type Singular Name', 'eluminate-child' ),
+			'menu_name'             => __( 'Video Series', 'eluminate-child' ),
+			'name_admin_bar'        => __( 'Video Series', 'eluminate-child' ),
+			'archives'              => __( 'Video Series Archives', 'eluminate-child' ),
+			'attributes'            => __( 'Video Series Attributes', 'eluminate-child' ),
+			'parent_item_colon'     => __( 'Parent Item:', 'eluminate-child' ),
+			'all_items'             => __( 'All Video Series', 'eluminate-child' ),
+			'add_new_item'          => __( 'Add New Video Series', 'eluminate-child' ),
+			'add_new'               => __( 'Add New', 'eluminate-child' ),
+			'new_item'              => __( 'New Video Series', 'eluminate-child' ),
+			'edit_item'             => __( 'Edit Video Series', 'eluminate-child' ),
+			'update_item'           => __( 'Update Video Series', 'eluminate-child' ),
+			'view_item'             => __( 'View Video Series', 'eluminate-child' ),
+			'view_items'            => __( 'View Items', 'eluminate-child' ),
+			'search_items'          => __( 'Search Video Series', 'eluminate-child' ),
+			'not_found'             => __( 'Not found', 'eluminate-child' ),
+			'not_found_in_trash'    => __( 'Not found in Trash', 'eluminate-child' ),
+			'featured_image'        => __( 'Featured Image', 'eluminate-child' ),
+			'set_featured_image'    => __( 'Set featured image', 'eluminate-child' ),
+			'remove_featured_image' => __( 'Remove featured image', 'eluminate-child' ),
+			'use_featured_image'    => __( 'Use as featured image', 'eluminate-child' ),
+			'insert_into_item'      => __( 'Insert into item', 'eluminate-child' ),
+			'uploaded_to_this_item' => __( 'Uploaded to this item', 'eluminate-child' ),
+			'items_list'            => __( 'Video Series list', 'eluminate-child' ),
+			'items_list_navigation' => __( 'Items list navigation', 'eluminate-child' ),
+			'filter_items_list'     => __( 'Filter Video Series list', 'eluminate-child' ),
+		);
+		$args   = array(
+			'label'               => __( 'Video Series', 'eluminate-child' ),
+			'description'         => __( 'Posts that show a series of videos', 'eluminate-child' ),
+			'labels'              => $labels,
+			'supports'            => array(
+				'title',
+				'editor',
+				'revisions',
+				'excerpt',
+				'thumbnail',
+			),
+			'taxonomies'          => array( 'video_category' ),
+			'hierarchical'        => false,
+			'public'              => true,
+			'show_ui'             => true,
+			'show_in_menu'        => true,
+			'menu_icon'           => 'dashicons-video-alt',
+			'menu_position'       => 5,
+			'show_in_admin_bar'   => true,
+			'show_in_nav_menus'   => true,
+			'can_export'          => true,
+			'has_archive'         => true,
+			'exclude_from_search' => false,
+			'publicly_queryable'  => true,
+			'capability_type'     => 'page',
+			'show_in_rest'        => false,
+		);
+		register_post_type( 'video_series', $args );
+
+	}
+
+	add_action( 'init', 'hestia_child_register_post_types', 0 );
+}
+
+
+/**
+ * Removes comments from the post types we created.
+ */
+if ( ! function_exists( 'hestia_child_remove_custom_post_comment' ) ) {
+	function hestia_child_remove_custom_post_comment() {
+		remove_post_type_support( 'video_series', 'comments' );
+	}
+
+	add_action( 'init', 'hestia_child_remove_custom_post_comment' );
+}
+
+
 if ( ! function_exists( 'hestia_child_eluminate_setup' ) ) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
