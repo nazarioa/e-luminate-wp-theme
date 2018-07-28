@@ -207,8 +207,8 @@ if ( ! function_exists( 'hestia_child_eluminate_recent_video_series_data' ) ) {
 	}
 }
 
-if ( ! function_exists( 'hestia_child_eluminate_video_series_index_html' ) ) {
-	function hestia_child_eluminate_video_series_index_html( $video_series_data, array $options = array() ) {
+if ( ! function_exists( 'hestia_child_eluminate_video_series_recent_html' ) ) {
+	function hestia_child_eluminate_video_series_recent_html( $video_series_data, array $options = array() ) {
 		$section_attribute_html[] = isset( $options['id'] ) ? 'id="' . $options['id'] . '"' : '';
 		$section_attribute_html[] = isset( $options['class'] ) ? 'class="' . $options['class'] . '"' : '';
 		$html                     = '<section ' . join( ' ', $section_attribute_html ) . '>';
@@ -258,7 +258,7 @@ if ( ! function_exists( 'hestia_child_eluminate_recent_video_series_shortcode' )
 		// Get the data.
 		$data = hestia_child_eluminate_recent_video_series_data( $a['limit'] );
 		// Generate the html.
-		print_r( hestia_child_eluminate_video_series_index_html( $data,
+		print_r( hestia_child_eluminate_video_series_recent_html( $data,
 			array( 'id' => $a['id'], 'class' => $a['class'] ) ) );
 	}
 
