@@ -98,6 +98,12 @@ div.header-filter {
   background-size: cover;
 }
 
+.navbar.navbar-transparent, .navbar-default {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 
 .author, .footer-black .copyright { /*disables Hestia theme information */
   display: none;
