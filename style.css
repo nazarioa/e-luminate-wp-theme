@@ -98,7 +98,8 @@ div.header-filter {
   background-size: cover;
 }
 
-.footer-black .copyright { /*disables Hestia theme information */
+
+.author, .footer-black .copyright { /*disables Hestia theme information */
   display: none;
 }
 
