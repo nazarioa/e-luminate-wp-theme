@@ -20,14 +20,6 @@ get_header();
  */
 do_action( 'hestia_before_single_page_wrapper' ); ?>
 
-<style type="text/css">
-	.header-filter {
-		background-image: url(<?php printf('%s', $video->thumbnail_standard_url); ?>);
-		background-position: center;
-		background-size: cover;
-	}
-</style>
-
 <div class="<?php echo hestia_layout(); ?>">
 	<div class="blog-post <?php echo esc_attr( $class_to_add ); ?>">
 		<div class="container">
