@@ -224,8 +224,10 @@ if ( ! function_exists( 'hestia_child_eluminate_video_series_recent_html' ) ) {
 			if ( sizeof( $videos ) > 0 ) {
 				$img_url = $videos[0]->thumbnail_maxres_url ?? $videos[0]->thumbnail_standard_url ?? $videos[0]->thumbnail_default_url ?? null;
 				if ( $img_url ) {
-					$img_attribute_html = $class ? ' class="' . $class . '-series-img" ' : 'class="series-img"';
-					$html               .= '<img ' . $img_attribute_html . ' src="' . $img_url . '"> ';
+					$img_attribute_html = array();
+					$class ? $img_attribute_html[] = 'class="' . $class . '-series-img"' : $img_attribute_html[] = 'class="series-img"';
+					$img_attribute_html[] = 'alt="' . $series['post_title'] . '"';
+					$html                 .= '<a href="' . $series['guid'] . '"><img ' . implode(' ', $img_attribute_html) . ' src="' . $img_url . '"></a>';
 				}
 				$list_attribute_html = $class ? ' class="' . $class . '-series-list" ' : 'class="series-list"';
 				$html                .= '<ul ' . $list_attribute_html . ' > ';
