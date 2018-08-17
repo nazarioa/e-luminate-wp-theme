@@ -46,7 +46,7 @@ do_action( 'hestia_before_single_page_wrapper' ); ?>
 					print('<div class="video-entry">');
 					$img_url = $video->thumbnail_maxres_url ?? $video->thumbnail_standard_url ?? $video->thumbnail_default_url ?? null;
 					if($img_url) {
-					    printf('<a href="http://www.youtube.com/watch?v=%s"><img class="video-thumbnail" src="%s" alt="%s"></a>', $video->youtube_video_code, $img_url, $video->title);
+					    printf('<iframe class="video-iframe" width="560" height="315" src="https://www.youtube.com/embed/%s" frameborder="0" allowfullscreen></iframe>', $video->youtube_video_code);
                     }
 					printf('<a href="http://www.youtube.com/watch?v=%s"><h4 class="video-title" >%s</h4></a>', $video->youtube_video_code, $video->title);
 					printf('<p class="video-description">%s</p>', $video->description);
