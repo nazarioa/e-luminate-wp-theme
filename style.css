@@ -51,6 +51,17 @@ body, li {
   font-size: 18px;
 }
 
+.page-header .sub-title:before {
+  content: " ";
+  display: block;
+  width: 160px;
+  height: 143px;
+  margin: auto;
+  margin-bottom: 1em;
+  background-image: url(http://www.e-luminate.online/wp-content/uploads/2018/07/soroptimist-international-of-novato-logo.png);
+  z-index: 9;
+}
+
 .video-entry, .recent-home-series {
   width: 100%;
   height: auto;
@@ -114,8 +125,8 @@ div.header-filter {
   width: 100%;
 }
 
-.navbar .navbar-brand img { /*sizes up the homepage e-luminate */
-  max-height: 6em;
+.navbar .navbar-brand img { /*e-luminate logo size*/
+  max-height: 16em;
   padding-bottom: .5em;
 }
 
@@ -124,6 +135,10 @@ div.header-filter {
 
 
 @media screen and (max-width: 48em) {
+  .navbar.navbar-transparent, .navbar-default {
+    background-color: rgba(255, 255, 255, .5);
+  }
+
   .video-entry, .recent-home-series {
     text-align: center;
   }
@@ -143,6 +158,13 @@ div.header-filter {
 
   p.video-description, .recent-home-series-list {
     display: block;
+  }
+
+  .navbar .navbar-brand img { /*e-luminate logo size*/
+    position: relative;
+    max-height: 10em;
+    margin-top: -1em;
+    margin-left: -.5em;
   }
 
 }
