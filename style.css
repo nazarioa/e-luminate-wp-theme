@@ -48,7 +48,14 @@ button backgroun primary color: #11234;
 /* e-luminate custom styles */
 
 body, li {
-  font-size: 18px;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.page-header span.sub-title {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 22px;
+  margin-bottom: -8em;
 }
 
 .page-header .sub-title:before {
@@ -57,9 +64,13 @@ body, li {
   width: 160px;
   height: 143px;
   margin: auto;
-  margin-bottom: 1em;
+  margin-bottom: .25em;
   background-image: url(http://www.e-luminate.online/wp-content/uploads/2018/07/soroptimist-international-of-novato-logo.png);
   z-index: 9;
+}
+
+img.image.wp-image-28.attachment-full.size-full { /*footer Soroptomist logo */
+  margin-bottom: -1em;
 }
 
 .video-entry, .recent-home-series {
@@ -83,7 +94,7 @@ body, li {
 }
 
 img.video-thumbnail, img.recent-home-series-img {
-  max-width: 32em;
+  max-width: 28em;
   width: 100%;
   height: 100%;
   float: left;
@@ -115,7 +126,6 @@ div.header-filter {
   box-shadow: none;
 }
 
-
 .author, .footer-black .copyright { /*disables Hestia theme information */
   display: none;
 }
@@ -130,13 +140,26 @@ div.header-filter {
   padding-bottom: .5em;
 }
 
-
 /* media queries */
 
-
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 60em) {
   .navbar.navbar-transparent, .navbar-default {
     background-color: rgba(255, 255, 255, .5);
+  }
+
+  .page-header .sub-title:after { /* e-luminate white text */
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 300px;
+    height: 60px;
+    margin: auto;
+    background-image: url(http://www.e-luminate.online/wp-content/uploads/2018/09/e-luminate-name-logo-white.png);
+    background-size: 300px 60px;
+    top: -4em;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9;
   }
 
   .video-entry, .recent-home-series {
@@ -166,14 +189,9 @@ div.header-filter {
     margin-top: -1em;
     margin-left: -.5em;
   }
-
 }
 
 /* Forms */
-
-/** {
-    background-color: red;
-}*/
 
 button,
 input[type="submit"],
