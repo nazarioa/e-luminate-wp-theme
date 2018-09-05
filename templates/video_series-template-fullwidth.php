@@ -48,7 +48,7 @@ do_action( 'hestia_before_single_page_wrapper' ); ?>
 					if($img_url) {
 					    printf('<iframe class="video-iframe" width="560" height="315" src="https://www.youtube.com/embed/%s" frameborder="0" allowfullscreen></iframe>', $video->youtube_video_code);
                     }
-					printf('<a href="http://www.youtube.com/watch?v=%s"><h4 class="video-title" >%s</h4></a>', $video->youtube_video_code, $video->title);
+					printf('<a href="https://www.youtube.com/watch?v=%s"><h4 class="video-title" >%s</h4></a>', $video->youtube_video_code, $video->title);
 					printf('<p class="video-description">%s</p>', $video->description);
 					print('</div>');
 				}

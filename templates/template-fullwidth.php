@@ -29,7 +29,7 @@ do_action( 'hestia_before_single_page_wrapper' ); ?>
 				if ( ! empty( $video_data ) ) {
 					foreach ( $video_data as $video ) {
 						printf('<img src="%s" alt="%s">', $video->thumbnail_default_url, $video->title);
-						printf('<a href="http://www.youtube.com/watch?v=%s">%s</a>', $video->youtube_video_code, $video->title);
+						printf('<a href="https://www.youtube.com/watch?v=%s">%s</a>', $video->youtube_video_code, $video->title);
 					}
 				}
 			}
