@@ -52,6 +52,11 @@ body, li {
   font-weight: 400;
 }
 
+h4.video-title {
+  font-size: 27px;
+  font-weight: 700;
+}
+
 .page-header span.sub-title {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 22px;
