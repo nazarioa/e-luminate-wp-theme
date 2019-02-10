@@ -290,3 +290,11 @@ if ( ! function_exists( 'hestia_child_eluminate_load_google_analytics' ) ) {
 
 	add_action( 'wp_enqueue_scripts', 'hestia_child_eluminate_load_google_analytics' );
 }
+
+if ( ! function_exists( 'hestia_child_eluminate_google_verification' ) ) {
+	function hestia_child_eluminate_google_verification() {
+		print('<meta name="google-site-verification" content="Ipj67ZzaLTCcAWzwFb_8A1GpibW34MNQxCnrJxWve6E" />');
+	}
+
+	add_action( 'wp_head', 'hestia_child_eluminate_google_verification' );
+}
