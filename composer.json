@@ -1,8 +1,12 @@
 {
   "name": "nazarioa/eluminate-hestia-child",
   "type": "wordpress-theme",
+  "description": "For E-Luminate - Child theme from Hestia",
+  "keywords": ["nazarioa", "theme", "wordpress", "wordpress-theme"],
+  "homepage": "https://github.com/nazarioa/e-luminate-wp-theme",
   "require": {
-    "composer/installers": "~1.0"
+    "composer/installers": "~1.0",
+    "php": ">=7.0"
   },
   "minimum-stability": "dev",
   "authors": [
