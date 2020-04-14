@@ -218,28 +218,31 @@ if ( ! function_exists( 'hestia_child_eluminate_video_series_recent_html' ) ) {
 			$article_attribute_html = $class ? ' class="' . $class . '-series" ' : 'class="series"';
 			$html                   .= '<article ' . $article_attribute_html . '>';
 			if ( isset( $series['post_title'] ) ) {
-				$html .= '<h1>' . $series['post_title'] . '</h1 >';
+				$html .= '<h2 class="title">' . $series['post_title'] . '</h2 >';
 			}
 
 			if ( sizeof( $videos ) > 0 ) {
 				$img_url = $videos[0]->thumbnail_maxres_url ?? $videos[0]->thumbnail_standard_url ?? $videos[0]->thumbnail_default_url ?? null;
 				if ( $img_url ) {
 					$img_attribute_html = array();
-					$class ? $img_attribute_html[] = 'class="' . $class . '-series-img"' : $img_attribute_html[] = 'class="series-img"';
+					$class ? $img_attribute_html[] = 'class="' . $class . '-series-image series-image"' : $img_attribute_html[] = 'class="series-img"';
 					$img_attribute_html[] = 'alt="' . $series['post_title'] . '"';
 					$html                 .= '<a href="' . $series['guid'] . '"><img ' . implode( ' ',
 							$img_attribute_html ) . ' src="' . $img_url . '"></a>';
 				}
-				$list_attribute_html = $class ? ' class="' . $class . '-series-list" ' : 'class="series-list"';
-				$html                .= '<ul ' . $list_attribute_html . ' > ';
+				$list_attribute_html = $class ? ' class="' . $class . '-items items" ' : 'class="items"';
+				$html                .= '<ol ' . $list_attribute_html . ' > ';
 				foreach ( $videos as $video ) {
-					$html .= '<li> ';
 					if ( isset( $video->title ) ) {
-						$html .= '<a href="' . $series['guid'] . '">' . $video->title . '</a>';
+						$html .= '<li class="' . $class . '-item item">';
+						$html .= '<a class="item-link" href="' . $series['guid'] . '">';
+						$html .= '<img class="youtube-icon" src="' . get_stylesheet_directory_uri() . '/assets/img/play.svg" alt=""/>';
+						$html .= $video->title;
+						$html .= '</a>';
+						$html .= '</li>';
 					}
-					$html .= '</li> ';
 				}
-				$html .= '</ul >';
+				$html .= '</ol >';
 			}
 			$html .= '</article >';
 		}

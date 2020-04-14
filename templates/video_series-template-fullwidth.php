@@ -23,8 +23,6 @@ do_action( 'hestia_before_single_page_wrapper' ); ?>
 <div class="<?php echo hestia_layout(); ?>">
 	<div class="blog-post <?php echo esc_attr( $class_to_add ); ?>">
 		<div class="container">
-
-
 			<?php
 			if ( have_posts() ) :
 				while ( have_posts() ) :
@@ -44,12 +42,13 @@ do_action( 'hestia_before_single_page_wrapper' ); ?>
 			if ( ! empty( $video_data ) ) {
 				foreach ( $video_data as $video ) {
 					print('<div class="video-entry">');
+					printf('<h4 class="title" >%s</h4>', $video->title);
 					$img_url = $video->thumbnail_maxres_url ?? $video->thumbnail_standard_url ?? $video->thumbnail_default_url ?? null;
 					if($img_url) {
-					    printf('<iframe class="video-iframe" width="560" height="315" src="https://www.youtube.com/embed/%s" frameborder="0" allowfullscreen></iframe>', $video->youtube_video_code);
-                    }
-					printf('<a href="https://www.youtube.com/watch?v=%s"><h4 class="video-title" >%s</h4></a>', $video->youtube_video_code, $video->title);
-					printf('<p class="video-description">%s</p>', $video->description);
+						printf('<iframe class="video-iframe" src="https://www.youtube.com/embed/%s" frameborder="0" allowfullscreen></iframe>', $video->youtube_video_code);
+					}
+					printf('<div class="description"><p>%s</p></div>', $video->description);
+					printf('<ul class="share"><li class="youtube"><a href="https://www.youtube.com/watch?v=%s"><img class="youtube-icon" src="' . get_stylesheet_directory_uri() . '/assets/img/play.svg" alt=""/>%s</a></li></ul>', $video->youtube_video_code, _('View on YouTube'));
 					print('</div>');
 				}
 			}

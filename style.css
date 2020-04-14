@@ -47,23 +47,27 @@ button backgroun primary color: #11234;
 
 /* e-luminate custom styles */
 
-body, li {
+body {
   font-size: 22px;
   font-weight: 400;
 }
 
-h4.video-title {
-  font-size: 27px;
-  font-weight: 700;
+ol {
+  font-size: unset;
 }
 
-.page-header span.sub-title {
+a:hover {
+  text-decoration: underline;
+}
+
+.page-header .sub-title {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 22px;
   margin-bottom: -8em;
 }
 
-.page-header .sub-title:before, .textwidget:before { /*Soroptomist logo in header and footer*/
+.page-header .sub-title:before,
+.textwidget:before { /*Soroptomist logo in header and footer*/
   content: " ";
   display: block;
   width: 160px;
@@ -73,60 +77,19 @@ h4.video-title {
   background-image: url(assets/img/soroptimist-international-of-novato-logo.svg);
 }
 
-.video-entry, .recent-home-series {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin-bottom: 4em;
+a.item-link:hover {
+  opacity: 1;
 }
 
-.video-entry:before,
-.video-entry:after,
-.recent-home-series:before,
-.recent-home-series:after {
-    content: " ";
-    display: table;
-}
-
-.video-entry:after,
-.recent-home-series:after {
-    clear: both;
-}
-
-img.video-thumbnail, img.recent-home-series-img {
-  max-width: 28em;
-  width: 100%;
-  height: 100%;
-  float: left;
-  padding-right: 1em;
-}
-
-h4.video-title, .recent-home-series h1 {
-  display: block;
-  vertical-align: top;
-}
-
-p.video-description, .recent-home-series-list {
-  display: block;
-}
-
-ul.recent-home-series-list {
-  list-style: none;
-  padding-left: 0;
-}
-
-div.header-filter {
-  background-position: center;
-  background-size: cover;
-}
-
-.navbar.navbar-transparent, .navbar-default {
-  background-color: transparent;
+.navbar.navbar-transparent,
+.navbar-default {
   -webkit-box-shadow: none;
+  background-color: transparent;
   box-shadow: none;
 }
 
-.author, .footer-black .copyright { /*disables Hestia theme information */
+.author,
+.footer-black .copyright { /*disables Hestia theme information */
   display: none;
 }
 
@@ -140,10 +103,87 @@ div.header-filter {
   padding-bottom: .5em;
 }
 
+.recent-home-series {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: minmax(auto, min-content) 1fr;
+  grid-template-areas: "title title" "items img";
+  height: auto;
+  margin-bottom: 4em;
+  width: 100%;
+  grid-gap: 20px;
+}
+
+.recent-home-series .title {
+  display: block;
+  grid-area: title;
+  text-align: center;
+  vertical-align: top;
+}
+
+.recent-home-series a {
+  grid-area: img;
+}
+
+.recent-home-series .series-image {
+  border: 1px solid #dedede;
+  padding: 1px;
+  width: 100%;
+}
+
+.recent-home-series .items {
+  grid-area: items;
+}
+
+.video-entry {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas: "title title" "iframe description" "share description";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: minmax(auto, min-content) minmax(auto, min-content) 1fr;
+  height: auto;
+  margin-bottom: 4em;
+  width: 100%;
+}
+
+.video-entry .title {
+  display: block;
+  font-size: 27px;
+  font-weight: 700;
+  grid-area: title;
+  text-align: center;
+  vertical-align: top;
+}
+
+.video-entry .description {
+  grid-area: description;
+}
+
+.video-entry .video-iframe {
+  grid-area: iframe;
+  border: 1px solid #dedede;
+  width: 100%;
+  height: 30vw;
+  max-height: 400px;
+}
+
+.video-entry .share {
+  grid-area: share;
+  align-self: start;
+  font-size: .8em;
+}
+
+.youtube-icon {
+  color: red;
+  height: 1em;
+  margin-right: 4px;
+}
+
 /* media queries */
 
 @media screen and (max-width: 60em) {
-  .navbar.navbar-transparent, .navbar-default {
+  .navbar.navbar-transparent,
+  .navbar-default {
     background-color: rgba(255, 255, 255, .5);
   }
 
@@ -162,25 +202,24 @@ div.header-filter {
     z-index: 9;
   }
 
-  .video-entry, .recent-home-series {
-    text-align: center;
+  .video-entry {
+    grid-gap: 5px;
+    grid-template-areas: "title" "iframe" "description" "share";
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(auto, max-content) minmax(auto, max-content) minmax(auto, max-content) minmax(auto, max-content);
   }
 
-  img.video-thumbnail, img.recent-home-series-img {
-    float: none;
-    display: block;
-    margin: auto;
-    margin-bottom: 1em;
-    padding-right: 0;
+  .video-entry .video-iframe {
+    width: 100%;
+    height: 50vw;
+    max-height: 400px;
   }
 
-  h4.video-title, .recent-home-series h1 {
-    display: block;
-    vertical-align: initial;
-  }
-
-  p.video-description, .recent-home-series-list {
-    display: block;
+  .recent-home-series {
+    grid-gap: 5px;
+    grid-template-areas: "title" "img" "items";
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(auto, max-content) minmax(auto, max-content) minmax(auto, max-content);
   }
 
   .navbar .navbar-brand img { /*animated e-luminate logo size*/
@@ -588,8 +627,11 @@ aside .widget a {
 
 /* page */
 
-.header-filter, .header-filter-gradient {
+.header-filter,
+.header-filter-gradient {
   background: linear-gradient(45deg, #005baa 0%, #005baa 100%);
+  background-position: center;
+  background-size: cover;
 }
 
 /* responsive */
