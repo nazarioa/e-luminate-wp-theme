@@ -9,7 +9,7 @@
  */
 
 if ( class_exists( 'Niztech_Youtube' ) ) {
-	require_once( WP_PLUGIN_DIR . '/niztech-youtube/Niztech_Youtube_Client.class.php' );
+	require_once( WP_PLUGIN_DIR . '/niztech-youtube/class-niztech-youtube-client.php' );
 }
 
 get_header();
