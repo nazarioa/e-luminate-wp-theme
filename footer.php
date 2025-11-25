@@ -5,12 +5,12 @@
  * Contains the closing of the "wrapper" div and all content after.
  *
  * @package Hestia
- * @since Hestia 1.0
+ * @since   Hestia 1.0
  */
 ?>
-			<?php do_action( 'hestia_do_footer' ); ?>
-		</div>
-	</div>
+            <?php do_action('hestia_do_footer'); ?>
+        </div>
+    </div>
 
 <?php wp_footer(); ?>
 
