@@ -1,18 +1,38 @@
 {
-  "name": "nazarioa/eluminate-hestia-child",
-  "type": "wordpress-theme",
-  "description": "For E-Luminate - Child theme from Hestia",
-  "keywords": ["nazarioa", "theme", "wordpress", "wordpress-theme"],
-  "homepage": "https://github.com/nazarioa/e-luminate-wp-theme",
-  "require": {
-    "composer/installers": "~1.0",
-    "php": ">=7.0"
-  },
-  "minimum-stability": "dev",
-  "authors": [
-    {
-      "name": "Nazario A. Ayala",
-      "email": "nazario@niztech.com"
-    }
-  ]
+	"name": "nazarioa/eluminate-hestia-child",
+	"type": "wordpress-theme",
+	"description": "For E-Luminate - Child theme from Hestia",
+	"keywords": [
+		"nazarioa",
+		"theme",
+		"wordpress",
+		"wordpress-theme"
+	],
+	"homepage": "https://github.com/nazarioa/e-luminate-wp-theme",
+	"require": {
+		"composer/installers": "~1.0",
+		"google/apiclient": "^2.2",
+		"php": ">=8.2"
+	},
+	"require-dev": {
+		"codeception/codeception": "^5.3",
+		"wp-coding-standards/wpcs": "^3.0"
+	},
+	"authors": [
+		{
+			"name": "Nazario A. Ayala",
+			"email": "nazario@niztech.com"
+		}
+	],
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"scripts": {
+		"lint": "vendor/bin/phpcs  -ns .",
+		"lint-fix": "vendor/bin/phpcbf"
+	},
+	"minimum-stability": "dev"
 }
