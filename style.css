@@ -175,8 +175,9 @@ a.item-link:hover {
 
 .youtube-icon {
 	color: red;
-	height: 1em;
-	margin-right: 4px;
+	height: 0.9rem;
+	margin-right: 8px;
+	min-height: 13px;
 }
 
 /* media queries */
