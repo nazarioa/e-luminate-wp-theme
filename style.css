@@ -48,184 +48,184 @@ button backgroun primary color: #11234;
 /* e-luminate custom styles */
 
 body {
-  font-size: 22px;
-  font-weight: 400;
+	font-size: 22px;
+	font-weight: 400;
 }
 
 ol {
-  font-size: unset;
+	font-size: unset;
 }
 
 a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 .page-header .sub-title {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-size: 22px;
-  margin-bottom: -8em;
+	font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+	font-size: 22px;
+	margin-bottom: -8em;
 }
 
 .page-header .sub-title:before,
 .textwidget:before { /*Soroptomist logo in header and footer*/
-  content: " ";
-  display: block;
-  width: 160px;
-  height: 144px;
-  margin: auto;
-  margin-bottom: .25em;
-  background-image: url(assets/img/soroptimist-international-of-novato-logo.svg);
+	content: " ";
+	display: block;
+	width: 160px;
+	height: 144px;
+	margin: auto;
+	margin-bottom: .25em;
+	background-image: url(assets/img/soroptimist-international-of-novato-logo.svg);
 }
 
 a.item-link:hover {
-  opacity: 1;
+	opacity: 1;
 }
 
 .navbar.navbar-transparent,
 .navbar-default {
-  -webkit-box-shadow: none;
-  background-color: transparent;
-  box-shadow: none;
+	-webkit-box-shadow: none;
+	background-color: transparent;
+	box-shadow: none;
 }
 
 .author,
 .footer-black .copyright { /*disables Hestia theme information */
-  display: none;
+	display: none;
 }
 
 .footer .content, .col-md-4 {
-  text-align: center;
-  width: 100%;
+	text-align: center;
+	width: 100%;
 }
 
 .navbar .navbar-brand img { /*animated e-luminate logo size*/
-  max-height: 16em;
-  padding-bottom: .5em;
+	max-height: 16em;
+	padding-bottom: .5em;
 }
 
 .recent-home-series {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: minmax(auto, min-content) 1fr;
-  grid-template-areas: "title title" "items img";
-  height: auto;
-  margin-bottom: 4em;
-  width: 100%;
-  grid-gap: 20px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: minmax(auto, min-content) 1fr;
+	grid-template-areas: "title title" "items img";
+	height: auto;
+	margin-bottom: 4em;
+	width: 100%;
+	grid-gap: 20px;
 }
 
 .recent-home-series .title {
-  display: block;
-  grid-area: title;
-  text-align: center;
-  vertical-align: top;
+	display: block;
+	grid-area: title;
+	text-align: center;
+	vertical-align: top;
 }
 
 .recent-home-series a {
-  grid-area: img;
+	grid-area: img;
 }
 
 .recent-home-series .series-image {
-  border: 1px solid #dedede;
-  padding: 1px;
-  width: 100%;
+	border: 1px solid #dedede;
+	padding: 1px;
+	width: 100%;
 }
 
 .recent-home-series .items {
-  grid-area: items;
+	grid-area: items;
 }
 
 .video-entry {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-areas: "title title" "iframe description" "share description";
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: minmax(auto, min-content) minmax(auto, min-content) 1fr;
-  height: auto;
-  margin-bottom: 4em;
-  width: 100%;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-areas: "title title" "iframe description" "share description";
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: minmax(auto, min-content) minmax(auto, min-content) 1fr;
+	height: auto;
+	margin-bottom: 4em;
+	width: 100%;
 }
 
 .video-entry .title {
-  display: block;
-  font-size: 27px;
-  font-weight: 700;
-  grid-area: title;
-  text-align: center;
-  vertical-align: top;
+	display: block;
+	font-size: 27px;
+	font-weight: 700;
+	grid-area: title;
+	text-align: center;
+	vertical-align: top;
 }
 
 .video-entry .description {
-  grid-area: description;
+	grid-area: description;
 }
 
 .video-entry .video-iframe {
-  grid-area: iframe;
-  border: 1px solid #dedede;
-  width: 100%;
-  height: 30vw;
-  max-height: 400px;
+	grid-area: iframe;
+	border: 1px solid #dedede;
+	width: 100%;
+	height: 30vw;
+	max-height: 400px;
 }
 
 .video-entry .share {
-  grid-area: share;
-  align-self: start;
-  font-size: .8em;
+	grid-area: share;
+	align-self: start;
+	font-size: .8em;
 }
 
 .youtube-icon {
-  color: red;
-  height: 1em;
-  margin-right: 4px;
+	color: red;
+	height: 1em;
+	margin-right: 4px;
 }
 
 /* media queries */
 
 @media screen and (max-width: 60em) {
-  .navbar.navbar-transparent,
-  .navbar-default {
-    background-color: rgba(255, 255, 255, .5);
-  }
+	.navbar.navbar-transparent,
+	.navbar-default {
+		background-color: rgba(255, 255, 255, .5);
+	}
 
-  .page-header .sub-title:after { /* e-luminate logo white text */
-    content: " ";
-    display: block;
-    position: absolute;
-    width: 300px;
-    height: 60px;
-    margin: auto;
-    background-image: url(assets/img/e-luminate-name-logo-white.svg);
-    background-size: 300px 60px;
-    top: -4em;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 9;
-  }
+	.page-header .sub-title:after { /* e-luminate logo white text */
+		content: " ";
+		display: block;
+		position: absolute;
+		width: 300px;
+		height: 60px;
+		margin: auto;
+		background-image: url(assets/img/e-luminate-name-logo-white.svg);
+		background-size: 300px 60px;
+		top: -4em;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 9;
+	}
 
-  .video-entry {
-    grid-gap: 5px;
-    grid-template-areas: "title" "iframe" "description" "share";
-    grid-template-columns: 1fr;
-    grid-template-rows: minmax(auto, max-content) minmax(auto, max-content) minmax(auto, max-content) minmax(auto, max-content);
-  }
+	.video-entry {
+		grid-gap: 5px;
+		grid-template-areas: "title" "iframe" "description" "share";
+		grid-template-columns: 1fr;
+		grid-template-rows: minmax(auto, max-content) minmax(auto, max-content) minmax(auto, max-content) minmax(auto, max-content);
+	}
 
-  .video-entry .video-iframe {
-    width: 100%;
-    height: 50vw;
-    max-height: 400px;
-  }
+	.video-entry .video-iframe {
+		width: 100%;
+		height: 50vw;
+		max-height: 400px;
+	}
 
-  .recent-home-series {
-    grid-gap: 5px;
-    grid-template-areas: "title" "img" "items";
-    grid-template-columns: 1fr;
-    grid-template-rows: minmax(auto, max-content) minmax(auto, max-content) minmax(auto, max-content);
-  }
+	.recent-home-series {
+		grid-gap: 5px;
+		grid-template-areas: "title" "img" "items";
+		grid-template-columns: 1fr;
+		grid-template-rows: minmax(auto, max-content) minmax(auto, max-content) minmax(auto, max-content);
+	}
 
-  .navbar .navbar-brand img { /*animated e-luminate logo size*/
-    position: relative;
-    max-height: 10em;
-    margin-top: -1em;
-    margin-left: -.5em;
-  }
+	.navbar .navbar-brand img { /*animated e-luminate logo size*/
+		position: relative;
+		max-height: 10em;
+		margin-top: -1em;
+		margin-left: -.5em;
+	}
 }
