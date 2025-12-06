@@ -30,8 +30,10 @@
 		}
 	},
 	"scripts": {
-		"lint": "vendor/bin/phpcs  -ns .",
-		"lint-fix": "vendor/bin/phpcbf"
+		"lint":  "vendor/bin/phpcs  -ns .",
+		"lint-fix":  "vendor/bin/phpcbf ",
+		"build-prod": "./build.sh",
+		"build-dev": "composer install"
 	},
 	"minimum-stability": "dev"
 }
